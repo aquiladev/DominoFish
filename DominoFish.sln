@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DominoFish", "DominoFish\DominoFish.csproj", "{801199C8-0F58-466E-967D-A41A1A2A569A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DominoCat", "DominoCat\DominoCat.csproj", "{C20EBE87-8A3D-485E-8248-2D8B4EC3F3C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DominoFishTests", "DominoFishTests\DominoFishTests.csproj", "{E06C9CAD-B833-4FC2-A34A-971288C0FDBE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|Win32 = Debug|Win32
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{801199C8-0F58-466E-967D-A41A1A2A569A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{801199C8-0F58-466E-967D-A41A1A2A569A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{801199C8-0F58-466E-967D-A41A1A2A569A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{801199C8-0F58-466E-967D-A41A1A2A569A}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{801199C8-0F58-466E-967D-A41A1A2A569A}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{801199C8-0F58-466E-967D-A41A1A2A569A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{801199C8-0F58-466E-967D-A41A1A2A569A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{801199C8-0F58-466E-967D-A41A1A2A569A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{801199C8-0F58-466E-967D-A41A1A2A569A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{801199C8-0F58-466E-967D-A41A1A2A569A}.Release|Win32.ActiveCfg = Release|Any CPU
+		{C20EBE87-8A3D-485E-8248-2D8B4EC3F3C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C20EBE87-8A3D-485E-8248-2D8B4EC3F3C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C20EBE87-8A3D-485E-8248-2D8B4EC3F3C0}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C20EBE87-8A3D-485E-8248-2D8B4EC3F3C0}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C20EBE87-8A3D-485E-8248-2D8B4EC3F3C0}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{C20EBE87-8A3D-485E-8248-2D8B4EC3F3C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C20EBE87-8A3D-485E-8248-2D8B4EC3F3C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C20EBE87-8A3D-485E-8248-2D8B4EC3F3C0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{C20EBE87-8A3D-485E-8248-2D8B4EC3F3C0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{C20EBE87-8A3D-485E-8248-2D8B4EC3F3C0}.Release|Win32.ActiveCfg = Release|Any CPU
+		{E06C9CAD-B833-4FC2-A34A-971288C0FDBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E06C9CAD-B833-4FC2-A34A-971288C0FDBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E06C9CAD-B833-4FC2-A34A-971288C0FDBE}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E06C9CAD-B833-4FC2-A34A-971288C0FDBE}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{E06C9CAD-B833-4FC2-A34A-971288C0FDBE}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{E06C9CAD-B833-4FC2-A34A-971288C0FDBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E06C9CAD-B833-4FC2-A34A-971288C0FDBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E06C9CAD-B833-4FC2-A34A-971288C0FDBE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E06C9CAD-B833-4FC2-A34A-971288C0FDBE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{E06C9CAD-B833-4FC2-A34A-971288C0FDBE}.Release|Win32.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
