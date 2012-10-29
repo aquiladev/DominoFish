@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DominoCat", "DominoCat\Domi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DominoFishTests", "DominoFishTests\DominoFishTests.csproj", "{E06C9CAD-B833-4FC2-A34A-971288C0FDBE}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "DominoCatFish", "DominoCatFish\DominoCatFish.fsproj", "{B48DCDED-4ED7-4CA7-A41A-2FD73A208D80}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
