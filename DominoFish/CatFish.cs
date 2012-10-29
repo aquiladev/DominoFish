@@ -8,111 +8,162 @@ namespace DominoFish
 {
     public class CatFish : Fish
     {
-        public string[] Float(int[,] dice)
+        public Squama[] Float(Squama[] dice)
         {
-            int n = 7;
-            var squamme = GetSquama(dice);
-            var deg1 = new List<int>(n) { 0, 0, 0, 0, 0, 0, 0 };
-            for (int i = 0; i < n; ++i)
-                for (int j = 0; j < n; ++j)
-                    deg1[i] += squamme[i, j];
+            int length = 7;
+            var matrix = GetMatrix(dice, length);
+            var deg = GetArrayFromMatrix(matrix, length);
+            int first = GetFirstPoint(deg);
+            var ringSquama = GetRingSquama(deg);
 
-            var deg = deg1.ToArray();
-            int first = 0;
-            while (deg[first] == 0) ++first;
+            if (ringSquama == null)
+                return null;
 
-            int v1 = -1, v2 = -1;
-            bool bad = false;
-            for (int i = 0; i < n; ++i)
+            if (ringSquama.X != -1 && ringSquama.Y != -1)
             {
-                if (deg[i] == 1)
+                SetRingSquama(matrix, ringSquama);
+            }
+            else if (ringSquama.X != -1 ^ ringSquama.Y != -1)
+            {
+                return null;
+            }
+            
+            List<int> res = GetQueuePoints(first, matrix, length);
+
+            if (ringSquama.X != -1)
+            {
+                RemoveRingSquama(ref res, ringSquama);
+            }
+
+            return (!ValidMatrix(matrix, length)) ? null : ToResult(res);
+        }
+
+        private int[,] GetMatrix(Squama[] squama, int length)
+        {
+            var matrix = new int[length, length];
+            for (int i = 0; i < squama.Length; i++)
+            {
+                matrix[squama[i].X, squama[i].Y] += 1;
+                matrix[squama[i].Y, squama[i].X] += 1;
+            }
+            return matrix;
+        }
+
+        private int[] GetArrayFromMatrix(int[,] squame, int length)
+        {
+            var deg = new int[length];
+            for (int i = 0; i < length; ++i)
+            {
+                for (int j = 0; j < length; ++j)
                 {
-                    if (v1 == -1)
-                        v1 = i;
-                    else if (v2 == -1)
-                        v2 = i;
-                    else
-                        bad = true;
+                    deg[i] += squame[i, j];
                 }
             }
+            return deg;
+        }
 
-            if (v1 != -1 && v2 != -1)
+        private bool ValidMatrix(int[,] matrix, int length)
+        {
+            for (int i = 0; i < length; ++i)
             {
-                ++squamme[v1, v2];
-                ++squamme[v2, v1];
+                for (int j = 0; j < length; ++j)
+                {
+                    if (matrix[i, j] > 0)
+                        return false;
+                }
             }
+            return true;
+        }
 
-            Stack<int> st = new Stack<int>();
+        private int GetFirstPoint(int[] array)
+        {
+            int first = 0;
+
+            while (array[first] == 0)
+                ++first;
+
+            return first;
+        }
+
+        private Squama GetRingSquama(int[] array)
+        {
+            var squama = new Squama(-1, -1);
+            for (int i = 0; i < array.Length; ++i)
+            {
+                if ((array[i] & 1) == 1)
+                {
+                    if (squama.X == -1)
+                        squama.X = i;
+                    else if (squama.Y == -1)
+                        squama.Y = i;
+                    else
+                        return null;
+                }
+            }
+            return squama;
+        }
+
+        private void SetRingSquama(int[,] matrix, Squama squama)
+        {
+            ++matrix[squama.X, squama.Y];
+            ++matrix[squama.Y, squama.X];
+        }
+
+        private void RemoveRingSquama(ref List<int> points, Squama squama)
+        {
+            for (int i = 0; i + 1 < points.Count; ++i)
+            {
+                if (points[i] == squama.X && points[i + 1] == squama.Y
+                    || points[i] == squama.Y && points[i + 1] == squama.X)
+                {
+                    List<int> temp = new List<int>();
+                    for (int j = i + 1; j < points.Count; ++j)
+                        temp.Add(points[j]);
+                    for (int j = 1; j <= i; ++j)
+                        temp.Add(points[j]);
+                    points = temp;
+                    break;
+                }
+            }
+        }
+
+        private List<int> GetQueuePoints(int first, int[,] matrix, int length)
+        {
+            var points = new List<int>();
+            var st = new Stack<int>();
             st.Push(first);
-            List<int> res = new List<int>();
             while (st.Count != 0)
             {
                 int v = st.Peek();
                 int i;
-                for (i = 0; i < n; ++i)
+                for (i = 0; i < length - 1; ++i)
                 {
-                    if (squamme[v, i] == 1)
+                    if (matrix[v, i] > 0)
                         break;
                 }
-                if (i == n)
+                if (i >= length - 1 && matrix[v, i] == 0)
                 {
-                    res.Add(v);
+                    points.Add(v);
                     st.Pop();
                 }
                 else
                 {
-                    --squamme[v, i];
-                    --squamme[i, v];
+                    --matrix[v, i];
+                    --matrix[i, v];
                     st.Push(i);
                 }
             }
-
-            if (v1 != -1)
-                for (int i = 0; i + 1 < res.Count; ++i)
-                {
-                    if (res[i] == v1 && res[i + 1] == v2 || res[i] == v2 && res[i + 1] == v1)
-                    {
-                        List<int> res2 = new List<int>();
-                        for (int j = i + 1; j < res.Count; ++j)
-                            res2.Add(res[j]);
-                        for (int j = 1; j <= i; ++j)
-                            res2.Add(res[j]);
-                        res = res2;
-                        break;
-                    }
-                }
-
-            for (int i = 0; i < n; ++i)
-                for (int j = 0; j < n; ++j)
-                    if (squamme[i, j] == 1)
-                        bad = true;
-
-            var rrrrr = new List<string>();
-
-            if (bad)
-                return null;
-            else
-                for (int i = 1; i < res.Count; ++i)
-                    rrrrr.Add(Convert.ToString(res[i - 1]) + Convert.ToString(res[i]));
-
-            return rrrrr.ToArray();
+            return points;
         }
 
-        private int[,] GetSquama(int[,] dice)
+        private Squama[] ToResult(List<int> res)
         {
-            var squama = new int[7, 7];
-            for (int i = 0; i < dice.Length / 2; i++)
+            var set = new Squama[res.Count - 1];
+            for (int i = 0; i < res.Count - 1; i++)
             {
-                if (dice[i, 0] == dice[i, 1])
-                {
-                    squama[dice[i, 0], dice[i, 0]] += 1;
-                    continue;
-                }
-
-                squama[dice[i, 0], dice[i, 1]] += 1;
-                squama[dice[i, 1], dice[i, 0]] += 1;
+                set[i] = new Squama(res[i], res[i + 1]);
             }
-            return squama;
+            return set;
         }
     }
 }

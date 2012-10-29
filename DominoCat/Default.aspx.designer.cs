@@ -22,13 +22,13 @@ namespace DominoCat {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// setOfChank control.
+        /// setOfSquamas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox setOfChank;
+        protected global::System.Web.UI.WebControls.TextBox setOfSquamas;
         
         /// <summary>
         /// Find control.
@@ -40,12 +40,12 @@ namespace DominoCat {
         protected global::System.Web.UI.WebControls.Button Find;
         
         /// <summary>
-        /// resOfChank control.
+        /// result control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox resOfChank;
+        protected global::System.Web.UI.WebControls.TextBox result;
     }
 }

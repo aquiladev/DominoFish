@@ -8,6 +8,6 @@ namespace DominoFish
 {
     public interface Fish
     {
-        string[] Float(int[,] dice);
+        Squama[] Float(Squama[] squamas);
     }
 }

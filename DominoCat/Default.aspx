@@ -9,9 +9,9 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <asp:TextBox ID="setOfChank" runat="server"></asp:TextBox>
-        <asp:Button ID="Find" runat="server" />
-        <asp:TextBox ID="resOfChank" runat="server"></asp:TextBox>
+        <asp:TextBox ID="setOfSquamas" runat="server" Rows="10" Columns="40" TextMode="MultiLine"></asp:TextBox>
+        <asp:Button ID="Find" runat="server" OnClick="Find_Click" Text="Go"/>
+        <asp:TextBox ID="result" runat="server" Rows="10" Columns="40" TextMode="MultiLine"></asp:TextBox>
     </div>
     </form>
 </body>

@@ -18,20 +18,76 @@ namespace DominoFishTests
             var fish = new CatFish();
 
             //act
-            var result = fish.Float(new int[,] { { 1, 5 }, { 3, 1 }, { 3, 6 }, { 5, 5 } });
+            var result = fish.Float(new[]{
+                new Squama(1, 5), 
+                new Squama(3, 1), 
+                new Squama(3, 6), 
+                new Squama(5, 6) });
 
             //assert
             Assert.NotNull(result);
         }
 
         [Test]
-        public void Float_F()
+        public void Float_Positive1()
         {
             //arrange
             var fish = new CatFish();
 
             //act
-            var result = fish.Float(new int[,] { { 1, 1 }, { 2, 3 } });
+            var result = fish.Float(new[]{
+                new Squama(1, 5) });
+
+            //assert
+            Assert.NotNull(result);
+        }
+
+        [Test]
+        public void Float_Positive2()
+        {
+            //arrange
+            var fish = new CatFish();
+
+            //act
+            var result = fish.Float(new[]{
+                new Squama(1, 5), 
+                new Squama(3, 1), 
+                new Squama(3, 6) });
+
+            //assert
+            Assert.NotNull(result);
+        }
+
+        [Test]
+        public void Float_Negative()
+        {
+            //arrange
+            var fish = new CatFish();
+
+            //act
+            var result = fish.Float(new[] { 
+                new Squama(1, 2), 
+                new Squama(2, 2), 
+                new Squama(2, 4), 
+                new Squama(4, 4), 
+                new Squama(2, 2), 
+                new Squama(1, 2), 
+                new Squama(5, 6) });
+
+            //assert
+            Assert.Null(result);
+        }
+
+        [Test]
+        public void Float_Negative2()
+        {
+            //arrange
+            var fish = new CatFish();
+
+            //act
+            var result = fish.Float(new Squama[] {
+                new Squama( 1, 1 ), 
+                new Squama( 2, 2 ) });
 
             //assert
             Assert.Null(result);
